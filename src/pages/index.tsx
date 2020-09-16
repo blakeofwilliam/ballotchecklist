@@ -9,7 +9,7 @@ const Index: NextPage = () => {
       justifyContent: 'center',
       width: '100vw'
     }}>
-      ✅Ballot Checklist
+      <img src="/images/ballotchecklist-logo.svg" />
     </div>
   )
 }
