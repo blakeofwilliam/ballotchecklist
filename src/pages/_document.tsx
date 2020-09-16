@@ -6,8 +6,10 @@ import Document, {
   NextScript
 } from 'next/document'
 import styled from '@emotion/styled'
+import { primary } from '@lib/colors'
 
 const Body = styled.body({
+  background: primary,
   fontFamily: '"Open Sans", sans-serif',
   fontSize: '15px',
   lineHeight: '1.2',
