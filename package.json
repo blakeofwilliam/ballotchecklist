@@ -1,0 +1,28 @@
+{
+  "name": "ballotchecklist",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:blakeofwilliam/ballotchecklist.git",
+  "author": "Blake Williams <blakethewilliams@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "next build",
+    "dev": "next",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.35",
+    "@emotion/styled": "^10.0.27",
+    "facepaint": "^1.2.1",
+    "next": "^9.5.3",
+    "polished": "^3.6.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/facepaint": "^1.2.1",
+    "@types/node": "^14.10.2",
+    "@types/react": "^16.9.49",
+    "typescript": "^4.0.2"
+  }
+}
