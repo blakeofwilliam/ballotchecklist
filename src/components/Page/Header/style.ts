@@ -1,6 +1,6 @@
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-import { darken, rgba } from 'polished'
+import { darken } from 'polished'
 
 import { secondary } from '@lib/colors'
 
@@ -8,7 +8,7 @@ import { secondary } from '@lib/colors'
 
 export const Logo = styled.img({
   maxHeight: '3rem',
-  transition: 'height 350ms'
+  transition: 'max-height 350ms'
 })
 
 export const Wrapper = styled.header({
