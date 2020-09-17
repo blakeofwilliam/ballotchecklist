@@ -20,8 +20,8 @@ export const Logo = styled.img<LogoPropsI>(({
   scrolled = false
 }) => ({
   maxHeight: scrolled
-    ? '2.5rem'
-    : '3rem',
+    ? '3rem'
+    : '4rem',
   transition: 'max-height 350ms'
 }))
 
@@ -34,8 +34,8 @@ export const Wrapper = styled.header<WrapperPropsI>(({
     : 'transparent',
   left: 0,
   padding: scrolled 
-    ? '0.5rem 0'
-    : '1rem 0',
+    ? '1rem 0'
+    : '2rem 0',
   position: 'fixed',
   right: 0,
   top: 0,

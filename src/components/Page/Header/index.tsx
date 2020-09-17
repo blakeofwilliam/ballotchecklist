@@ -10,6 +10,7 @@ import {
   Logo,
   Wrapper
 } from '@components/Page/Header/style'
+import Nav from '@components/Page/Header/Nav'
 
 interface HeaderPropsI {
   isScrolled: boolean
@@ -20,7 +21,10 @@ const Header: FunctionComponent<HeaderPropsI> = ({ isScrolled = false }) => {
     <Wrapper
       scrolled={isScrolled}
     >
-      <Container>
+      <Container
+        alignItems="center"
+        justifyContent="space-between"
+      >
         <Logo 
           scrolled={isScrolled}
           src={
@@ -29,6 +33,7 @@ const Header: FunctionComponent<HeaderPropsI> = ({ isScrolled = false }) => {
               : `/images/ballotchecklist-logo.svg`
           } 
         />
+        <Nav scrolled={isScrolled} />
       </Container>
     </Wrapper>
   )
