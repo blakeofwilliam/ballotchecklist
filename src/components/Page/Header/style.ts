@@ -23,7 +23,7 @@ export const Wrapper = styled.header({
 /** CSS Styles */
 
 export const scrolledStyle = css({
-  backgroundColor: darken(0.25, secondary),
+  backgroundColor: 'white',
   padding: '0.5rem 0',
   [`${Logo}`]: {
     maxHeight: '2.5rem'
