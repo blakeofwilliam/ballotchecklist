@@ -6,12 +6,32 @@ import Document, {
   NextScript
 } from 'next/document'
 import styled from '@emotion/styled'
+import { primary, secondary } from '@lib/colors'
 
 const Body = styled.body({
+  background: secondary,
   fontFamily: '"Open Sans", sans-serif',
   fontSize: '15px',
+  fontWeight: 500,
+  minHeight: '200vh',
   lineHeight: '1.2',
   margin: 0,
+  'h1, h2, h3': {
+    fontWeight: 700,
+    margin: 0
+  },
+  h1: {
+    fontSize: '2rem',
+  },
+  h2: {
+    fontSize: '1.75rem'
+  },
+  h3: {
+    fontSize: '1.5rem'
+  },
+  a: {
+    color: primary
+  },
   '*': {
     boxSizing: 'border-box'
   },
