@@ -1,6 +1,4 @@
 import styled from '@emotion/styled'
-import { darken } from 'polished'
-import { secondary } from '@lib/colors'
 
 export const Wrapper = styled.footer({
   background: '#f7f7f8',
