@@ -25,7 +25,7 @@ const Header: FunctionComponent<HeaderPropsI> = ({ isScrolled = false }) => {
         isScrolled && scrolledStyle
       ]}
     >
-      <Container body={false}>
+      <Container>
         <Logo src="/images/ballotchecklist-logo.svg" />
       </Container>
     </Wrapper>

@@ -5,11 +5,14 @@ import { mediaQueries } from '@lib/mediaQueries'
 /** Container component for Hack DS design system */
 
 interface ContainerPropsI {
-  body: boolean
+  body?: boolean
   scrolled?: boolean
 }
 
-const Container = styled.div<ContainerPropsI>(p => mediaQueries({
+const Container = styled.div<ContainerPropsI>(({
+  body = false,
+  scrolled = false
+}) => mediaQueries({
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'flex-start',
@@ -27,8 +30,8 @@ const Container = styled.div<ContainerPropsI>(p => mediaQueries({
     '4rem',
     '6rem',
   ],
-  paddingTop: p.body
-    ? p.scrolled 
+  paddingTop: body
+    ? scrolled 
       ? '4.5rem'
       : '6rem'
     : 0,
