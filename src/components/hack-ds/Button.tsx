@@ -7,7 +7,7 @@ import { mediaQueries } from '@lib/mediaQueries'
 
 const buttonStyles = {
   alignItems: 'center',
-  border: 'solid 1px',
+  border: 'solid 2px',
   cursor: 'pointer',
   display: 'flex',
   fontSize: '0.875rem',
