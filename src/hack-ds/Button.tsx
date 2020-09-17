@@ -55,22 +55,11 @@ const secondaryStyles = {
   color: primary
 }
 
-export const PrimaryButton = styled.button(mediaQueries({
-  ...buttonStyles,
-  ...primaryStyles
-}))
+export const Button = styled.button(mediaQueries(buttonStyles))
+export const Link = styled.a(mediaQueries(buttonStyles))
 
-export const PrimaryButtonLink = styled.a(mediaQueries({
-  ...buttonStyles,
-  ...primaryStyles
-}))
+export const PrimaryButton = styled(Button)(mediaQueries(primaryStyles))
+export const PrimaryButtonLink = styled(Link)(mediaQueries(primaryStyles))
 
-export const SecondaryButton = styled.button(mediaQueries({
-  ...buttonStyles,
-  ...secondaryStyles
-}))
-
-export const SecondaryButtonLink = styled.a(mediaQueries({
-  ...buttonStyles,
-  ...secondaryStyles
-}))
+export const SecondaryButton = styled(Button)(mediaQueries(secondaryStyles))
+export const SecondaryButtonLink = styled(Link)(mediaQueries(secondaryStyles))
