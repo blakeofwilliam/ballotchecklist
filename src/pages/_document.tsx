@@ -52,6 +52,7 @@ class MyDocument extends Document {
       <Html lang="en-US">
         <Head>
           <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700,800&display=swap" rel="stylesheet" />
+          <link href="/images/favicon.png" rel="icon" type="image/png" />
         </Head>
         <Body>
           <Main />

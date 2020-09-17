@@ -1,4 +1,5 @@
 import { NextPage } from 'next'
+import Head from 'next/head'
 
 import { 
   PrimaryButton,
@@ -10,28 +11,29 @@ import Page from '@components/Page'
 
 const Index: NextPage = () => {
   return (
-    <Page>
-      <Card>
-        <h1>Headline text</h1>
-        <p>
-          Body text with <a href="#">hyperlink</a> mid-sentence.
-        </p>
+    <>
+      <Head>
+        <title>Ballot Checklist</title>
+      </Head>
+      <Page>
+        <Card>
+          <h1>Headline text</h1>
+          <p>
+            Body text with <a href="#">hyperlink</a> mid-sentence.
+          </p>
 
-        <>
-          <PrimaryButton>
-            Primary action
-          </PrimaryButton>
-          <SecondaryButton>
-            Secondary action
-          </SecondaryButton>
-        </>
-      </Card>
-    </Page>
+          <>
+            <PrimaryButton>
+              Primary action
+            </PrimaryButton>
+            <SecondaryButton>
+              Secondary action
+            </SecondaryButton>
+          </>
+        </Card>
+      </Page>
+    </>
   )
-}
-
-Index.getInitialProps = async () => {
-  return {}
 }
 
 export default Index
