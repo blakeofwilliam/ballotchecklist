@@ -35,6 +35,7 @@ const Container = styled.div<ContainerPropsI>(({
       ? '4.5rem'
       : '6rem'
     : 0,
+  transition: 'padding-top 350ms',
   width: '100%'
 }))
 
