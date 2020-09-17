@@ -6,7 +6,7 @@ import {
 } from 'react'
 import { jsx } from '@emotion/core'
 
-import Container from '@system/Container'
+import Container from 'src/hack-ds/Container'
 
 import {
   scrolledStyle,

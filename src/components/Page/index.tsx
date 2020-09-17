@@ -1,7 +1,8 @@
 import { useEffect, useState, FunctionComponent } from 'react'
-import Container from '@system/Container'
+import Container from 'src/hack-ds/Container'
 
 import Header from '@components/Page/Header'
+import Footer from '@components/Page/Footer'
 
 const Page: FunctionComponent = ({ children }) => {
   const [isScrollled, setIsScrolled] = useState<boolean>(false)
@@ -26,6 +27,8 @@ const Page: FunctionComponent = ({ children }) => {
       >
         { children }
       </Container>
+
+      <Footer />
     </>
   )
 }

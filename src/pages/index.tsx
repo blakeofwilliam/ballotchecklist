@@ -3,8 +3,8 @@ import { NextPage } from 'next'
 import { 
   PrimaryButton,
   SecondaryButton
-} from '@system/Button'
-import Card from '@system/Card'
+} from 'src/hack-ds/Button'
+import Card from 'src/hack-ds/Card'
 
 import Page from '@components/Page'
 

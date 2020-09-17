@@ -14,7 +14,7 @@ module.exports = {
       '@lib': path.resolve(__dirname, './src/lib'),
       '@pages': path.resolve(__dirname, './src/pages'),
       '@public': path.resolve(__dirname, './public'),
-      '@system': path.resolve(__dirname, './src/components/hack-ds')
+      '@system': path.resolve(__dirname, './src/hack-ds')
     });
 
     return config

@@ -23,7 +23,7 @@
       "@lib/*": ["src/lib/*"],
       "@pages/*": ["src/pages/*"],
       "@public/*": ["public/*"],
-      "@system/*": ["src/components/hack-ds/*"]
+      "@system/*": ["src/hack-ds/*"]
     }
   },
   "include": [
