@@ -1,15 +1,12 @@
-/** @jsx jsx */
 import {
   useEffect,
   useState,
   FunctionComponent
 } from 'react'
-import { jsx } from '@emotion/core'
 
-import Container from 'src/hack-ds/Container'
+import Container from '@system/Container'
 
 import {
-  scrolledStyle,
   Logo,
   Wrapper
 } from '@components/Page/Header/style'
@@ -21,16 +18,17 @@ interface HeaderPropsI {
 const Header: FunctionComponent<HeaderPropsI> = ({ isScrolled = false }) => {
   return (
     <Wrapper
-      css={[
-        isScrolled && scrolledStyle
-      ]}
+      scrolled={isScrolled}
     >
       <Container>
-        <Logo src={
-          isScrolled 
-            ? `/images/ballotchecklist-logo-mark.svg`
-            : `/images/ballotchecklist-logo.svg`
-        } />
+        <Logo 
+          scrolled={isScrolled}
+          src={
+            isScrolled 
+              ? `/images/ballotchecklist-logo-mark.svg`
+              : `/images/ballotchecklist-logo.svg`
+          } 
+        />
       </Container>
     </Wrapper>
   )

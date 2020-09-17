@@ -1,7 +1,8 @@
 import { FunctionComponent } from 'react'
 
-import { Wrapper } from '@components/Page/Footer/style'
 import Container from '@system/Container'
+
+import { Wrapper } from '@components/Page/Footer/style'
 
 const Footer: FunctionComponent = () => {
   return (

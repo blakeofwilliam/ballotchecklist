@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { 
   PrimaryButton,
   SecondaryButton
-} from 'src/hack-ds/Button'
-import Card from 'src/hack-ds/Card'
+} from '@system/Button'
+import Card from '@system/Card'
 
 import Page from '@components/Page'
 

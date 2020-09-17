@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import { primary } from '@lib/colors'
 
+import { primary } from '@lib/colors'
 import { mediaQueries } from '@lib/mediaQueries'
 
 /** Button components for Hack DS design system */
