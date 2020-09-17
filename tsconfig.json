@@ -22,7 +22,8 @@
       "@components/*": ["src/components/*"],
       "@lib/*": ["src/lib/*"],
       "@pages/*": ["src/pages/*"],
-      "@public/*": ["public/*"]
+      "@public/*": ["public/*"],
+      "@system/*": ["src/components/hack-ds/*"]
     }
   },
   "include": [

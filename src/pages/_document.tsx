@@ -13,6 +13,7 @@ const Body = styled.body({
   fontFamily: '"Open Sans", sans-serif',
   fontSize: '15px',
   fontWeight: 500,
+  minHeight: '200vh',
   lineHeight: '1.2',
   margin: 0,
   'h1, h2, h3': {
