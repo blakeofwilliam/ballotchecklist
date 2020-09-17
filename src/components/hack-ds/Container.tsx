@@ -6,7 +6,7 @@ import { mediaQueries } from '@lib/mediaQueries'
 
 interface ContainerPropsI {
   body: boolean
-  scrolled: boolean
+  scrolled?: boolean
 }
 
 const Container = styled.div<ContainerPropsI>(p => mediaQueries({
