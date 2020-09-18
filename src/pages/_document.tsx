@@ -10,6 +10,7 @@ import { primary, secondary } from '@lib/colors'
 
 const Body = styled.body({
   background: secondary,
+  color: '#353535',
   fontFamily: '"Open Sans", sans-serif',
   fontSize: '15px',
   fontWeight: 500,
