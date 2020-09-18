@@ -7,7 +7,7 @@ import { Wrapper } from '@components/Page/Footer/style'
 const Footer: FunctionComponent = () => {
   return (
     <Wrapper>
-      <Container>
+      <Container justifyContent="center">
         Made with ❤️ in Oakland, CA
       </Container>
     </Wrapper>
