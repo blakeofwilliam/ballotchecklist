@@ -35,7 +35,8 @@ const State: NextPage<StatePagePropsI> = ({
         <meta property="og:image" content={`${baseURL}/images/ballotchecklist-logo.svg`} />
         <meta property="og:url" content={`${baseURL}/states/${state.name}`} />
         <meta property="og:site_name" content="Ballot Checklist" />
-        <meta name="twitter:card" content="summary_large_image"></meta>
+        <meta name="twitter:image" content={`${baseURL}/images/ballotchecklist-logo.svg`} />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image:alt" content={`Ballot Checklist for ${state.name}`} />
       </Head>
       <Page>
