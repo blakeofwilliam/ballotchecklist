@@ -11,6 +11,7 @@ import Page from '@components/Page'
 import { fromSlug } from '@lib/state'
 import Card from '@system/Card'
 import RichText from '@components/RichText'
+import Pointers from '@components/Pointers'
 
 interface StatePagePropsI {
   pointers: PointerPropsI[]
@@ -18,6 +19,7 @@ interface StatePagePropsI {
 }
 
 const State: NextPage<StatePagePropsI> = ({
+  pointers = [],
   state
 }) => {
   return (
@@ -26,8 +28,13 @@ const State: NextPage<StatePagePropsI> = ({
         <title>Ballot Checklist for {state.name}</title>
       </Head>
       <Page>
-        <Card width="100%">
-          {}
+        <Card width={`100%`}>
+          <Pointers pointers={pointers} />
+        </Card>
+        <Card
+          style={{ marginTop: '1rem'}}
+          width="100%"
+        >
           <h1>{ state.name }</h1>
           <ul>
             <li>Copy of ID required? { state.copyOfIdRequred ? `✅` : `❌`}</li>

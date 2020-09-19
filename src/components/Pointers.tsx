@@ -2,7 +2,6 @@ import { FunctionComponent } from 'react'
 import RichText from '@components/RichText'
 
 import { PointerPropsI } from '@lib/contentful'
-import { toSlug } from '@lib/state'
 
 interface PointersPropsI {
   pointers: PointerPropsI[]
