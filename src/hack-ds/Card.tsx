@@ -5,7 +5,19 @@ import { mediaQueries } from '@lib/mediaQueries'
 
 /** Card component for Hack DS design system */
 
-const Card = styled.div(mediaQueries({
+interface CardPropsI {
+  width?: string | string[]
+}
+
+const Card = styled.div<CardPropsI>(({
+  width = [
+    '100%',
+    '100%',
+    '100%',
+    'auto',
+    'auto'
+  ]
+}) => mediaQueries({
   ...linearGradient({
     colorStops: [
       'white 0%',
@@ -22,13 +34,7 @@ const Card = styled.div(mediaQueries({
     '2rem',
     '2rem',
   ],
-  width: [
-    '100%',
-    '100%',
-    '100%',
-    'auto',
-    'auto'
-  ]
+  width
 }))
 
 export default Card
