@@ -17,6 +17,11 @@ interface StateParamsI {
   name?: string
 }
 
+export interface PointerPropsI {
+  name: string
+  content: Document
+}
+
 let contentful: Contentful.ContentfulClientApi;
 
 export const createClient = async (): Promise<Contentful.ContentfulClientApi> => {
@@ -29,6 +34,23 @@ export const createClient = async (): Promise<Contentful.ContentfulClientApi> =>
   })
 
   return contentful
+}
+
+export const getPointers = async (): Promise<PointerPropsI[]> => {
+  const client = await createClient()
+  const result = await client.getEntries<PointerPropsI>({
+    content_type: 'pointers',
+    order: '-sys.createdAt'
+  })
+  return result.items
+    .filter(item => item.fields.name)
+    .map(item => {
+      const entry = item.toPlainObject
+        ? item.toPlainObject() as Contentful.Entry<PointerPropsI>
+        : item as Contentful.Entry<PointerPropsI>
+      
+      return entry.fields
+    })
 }
 
 export const getState = async ({

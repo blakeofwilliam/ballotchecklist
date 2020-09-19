@@ -2,7 +2,9 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 
 import {
+  getPointers,
   getState,
+  PointerPropsI,
   StatePropsI
 } from '@lib/contentful'
 import Page from '@components/Page'
@@ -11,6 +13,7 @@ import Card from '@system/Card'
 import RichText from '@components/RichText'
 
 interface StatePagePropsI {
+  pointers: PointerPropsI[]
   state: StatePropsI
 }
 
@@ -24,6 +27,7 @@ const State: NextPage<StatePagePropsI> = ({
       </Head>
       <Page>
         <Card width="100%">
+          {}
           <h1>{ state.name }</h1>
           <ul>
             <li>Copy of ID required? { state.copyOfIdRequred ? `✅` : `❌`}</li>
@@ -59,8 +63,10 @@ State.getInitialProps = async ({
   const stateEntry = await getState({
     name
   })
+  const pointers = await getPointers()
 
   return {
+    pointers,
     state: stateEntry
   }
 }

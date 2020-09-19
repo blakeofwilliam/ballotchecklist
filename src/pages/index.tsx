@@ -1,39 +1,39 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 
-import { 
-  PrimaryButton,
-  SecondaryButton
-} from '@system/Button'
+import Page from '@components/Page'
+import { PointerPropsI, getPointers } from '@lib/contentful'
+import Pointers from '@components/Pointers'
 import Card from '@system/Card'
 
-import Page from '@components/Page'
 
-const Index: NextPage = () => {
+interface IndexPagePropsI {
+  pointers: PointerPropsI[]
+}
+
+const Index: NextPage<IndexPagePropsI> = ({
+  pointers = []
+}) => {
   return (
     <>
       <Head>
         <title>Ballot Checklist</title>
       </Head>
       <Page>
-        <Card>
-          <h1>Headline text</h1>
-          <p>
-            Body text with <a href="#">hyperlink</a> mid-sentence.
-          </p>
-
-          <>
-            <PrimaryButton>
-              Primary action
-            </PrimaryButton>
-            <SecondaryButton>
-              Secondary action
-            </SecondaryButton>
-          </>
+        <Card width="100%">
+          <Pointers pointers={pointers} />
         </Card>
       </Page>
     </>
   )
+}
+
+Index.getInitialProps = async (): Promise<IndexPagePropsI> => {
+  const pointers = await getPointers()
+
+  return {
+    pointers
+  }
 }
 
 export default Index
