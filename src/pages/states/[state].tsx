@@ -1,5 +1,6 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
+import absoluteUrl from 'next-absolute-url'
 
 import {
   getPointers,
@@ -15,17 +16,27 @@ import Pointers from '@components/Pointers'
 
 interface StatePagePropsI {
   pointers: PointerPropsI[]
+  baseURL: string
   state: StatePropsI
 }
 
 const State: NextPage<StatePagePropsI> = ({
   pointers = [],
-  state
+  baseURL,
+  state,
 }) => {
   return (
     <>
       <Head>
-        <title>Ballot Checklist for {state.name}</title>
+        <title>{`Ballot Checklist for ${state.name}`}</title>
+
+        <meta property="og:title" content={`Mail-In Ballot Checklist for ${state.name}`} />
+        <meta property="og:description" content={`Be sure to read this checklist before mailing in your ballot for ${state.name}!`} />
+        <meta property="og:image" content={`${baseURL}/images/ballotchecklist-logo.svg`} />
+        <meta property="og:url" content={`${baseURL}/states/${state.name}`} />
+        <meta property="og:site_name" content="Ballot Checklist" />
+        <meta name="twitter:card" content="summary_large_image"></meta>
+        <meta name="twitter:image:alt" content={`Ballot Checklist for ${state.name}`} />
       </Head>
       <Page>
         <Card width={`100%`}>
@@ -64,6 +75,7 @@ const State: NextPage<StatePagePropsI> = ({
 }
 
 State.getInitialProps = async ({
+  req,
   query: { state }
 }) => {
   const name = fromSlug(state as string)
@@ -71,10 +83,12 @@ State.getInitialProps = async ({
     name
   })
   const pointers = await getPointers()
+  const { origin } = absoluteUrl(req, 'localhost:3000')
 
   return {
     pointers,
-    state: stateEntry
+    baseURL: origin,
+    state: stateEntry,
   }
 }
 
