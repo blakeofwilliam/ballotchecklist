@@ -40,7 +40,7 @@ export const getPointers = async (): Promise<PointerPropsI[]> => {
   const client = await createClient()
   const result = await client.getEntries<PointerPropsI>({
     content_type: 'pointers',
-    order: '-sys.createdAt'
+    order: 'sys.createdAt'
   })
   return result.items
     .filter(item => item.fields.name)
