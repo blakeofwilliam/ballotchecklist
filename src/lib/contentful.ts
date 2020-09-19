@@ -2,8 +2,14 @@ import * as Contentful from 'contentful'
 import { Document } from '@contentful/rich-text-types'
 
 export interface StatePropsI {
+  additionalInfo: Document
+  additionalValidFormsOfId: Document
+  copyOfIdRequred: boolean
   name: string
-  testRichText: Document
+  notaryOfWitnessRequired: boolean
+  postmarkedDeadline: string
+  receiptDeadline: string
+  validFormsOfId: string[]
 }
 
 interface StateParamsI {

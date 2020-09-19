@@ -25,7 +25,27 @@ const State: NextPage<StatePagePropsI> = ({
       <Page>
         <Card width="100%">
           <h1>{ state.name }</h1>
-          <RichText document={state.testRichText} />
+          <ul>
+            <li>Copy of ID required? { state.copyOfIdRequred ? `✅` : `❌`}</li>
+            <li>Notary or Witness Required? { state.notaryOfWitnessRequired ? `✅` : `❌`}</li>
+          </ul>
+          { state.validFormsOfId && (
+            <>
+              <h2>Valid Forms of ID</h2>
+              <ul>
+                { state.validFormsOfId.map(id => <li key={id}>{id}</li>) }
+              </ul>
+            </>
+          )}
+          { state.additionalValidFormsOfId && (
+            <>
+              <h3>Additional Valid Forms of ID</h3>
+              <RichText document={state.additionalValidFormsOfId} />
+            </>
+          )}
+          { state.additionalInfo && (
+            <RichText document={state.additionalInfo} />
+          )}
         </Card>
       </Page>
     </>
