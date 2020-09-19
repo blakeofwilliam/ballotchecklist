@@ -8,6 +8,7 @@ import {
 import Page from '@components/Page'
 import { fromSlug } from '@lib/state'
 import Card from '@system/Card'
+import RichText from '@components/RichText'
 
 interface StatePagePropsI {
   state: StatePropsI
@@ -24,6 +25,7 @@ const State: NextPage<StatePagePropsI> = ({
       <Page>
         <Card width="100%">
           <h1>{ state.name }</h1>
+          <RichText document={state.testRichText} />
         </Card>
       </Page>
     </>

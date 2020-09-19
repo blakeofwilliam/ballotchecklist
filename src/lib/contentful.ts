@@ -1,7 +1,9 @@
 import * as Contentful from 'contentful'
+import { Document } from '@contentful/rich-text-types'
 
 export interface StatePropsI {
   name: string
+  testRichText: Document
 }
 
 interface StateParamsI {
