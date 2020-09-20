@@ -31,7 +31,7 @@ const Pointer = styled.div(mediaQueries({
     'calc(50% - 1rem)',
     'calc(50% - 1rem)'
   ],
-  '&:nth-child(even)': {
+  '&:nth-of-type(even)': {
     marginLeft: [
       0,
       0,

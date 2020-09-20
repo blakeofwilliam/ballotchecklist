@@ -32,7 +32,7 @@ const ListItem = styled.li(mediaQueries({
     'calc((100%/3) - 2rem)',
     'calc(100%/4 - 3rem)'
   ],
-  [`&:not(:nth-child(4n+1))`]: {
+  [`&:not(:nth-of-type(4n+1))`]: {
     marginLeft: [
       0,
       0,
