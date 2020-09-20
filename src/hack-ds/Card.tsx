@@ -21,7 +21,7 @@ const Card = styled.div<CardPropsI>(({
   ...linearGradient({
     colorStops: [
       'white 0%',
-      '#e7e7e6 85%'
+      '#f7f7f8 85%'
     ]
   }),
   border: 'solid 1px white',

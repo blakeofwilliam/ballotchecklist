@@ -19,6 +19,7 @@ interface LogoPropsI {
 export const Logo = styled.img<LogoPropsI>(({
   scrolled = false
 }) => ({
+  cursor: 'pointer',
   maxHeight: scrolled
     ? '3rem'
     : '4rem',

@@ -20,6 +20,7 @@ interface StateParamsI {
 export interface PointerPropsI {
   name: string
   content: Document
+  icon: string
 }
 
 let contentful: Contentful.ContentfulClientApi;

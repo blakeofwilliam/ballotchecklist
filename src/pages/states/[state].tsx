@@ -41,7 +41,16 @@ const State: NextPage<StatePagePropsI> = ({
       </Head>
       <Page>
         <Card width={`100%`}>
-          <Pointers pointers={pointers} />
+          <Pointers pointers={pointers.filter(pointer => {
+            if (!state.notaryOfWitnessRequired && pointer.name.toLowerCase().indexOf('witness') >= 0) {
+              return false
+            }
+            if (!state.copyOfIdRequred && pointer.name.toLowerCase().indexOf('photo copy') >= 0) {
+              return false
+            }
+
+            return true
+          })} />
         </Card>
         <Card
           style={{ marginTop: '1rem'}}
