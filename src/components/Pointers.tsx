@@ -8,18 +8,36 @@ import { PointerPropsI } from '@lib/contentful'
 import { primary } from '@lib/colors'
 import { mediaQueries } from '@lib/mediaQueries'
 
-const Icon = styled.div({
+const Icon = styled.div(mediaQueries({
   alignItems: 'center',
   background: primary,
   borderRadius: '2rem',
   color: 'white',
   display: 'flex',
-  fontSize: '2rem',
-  height: '4rem',
+  fontSize: [
+    '1.5rem',
+    '1.5rem',
+    '2rem',
+    '2rem',
+    '2rem',
+  ],
+  height: [
+    '3rem',
+    '3rem',
+    '4rem',
+    '4rem',
+    '4rem',
+  ],
   justifyContent: 'center',
   marginRight: '1rem',
-  width: '4rem'
-})
+  width: [
+    '3rem',
+    '3rem',
+    '4rem',
+    '4rem',
+    '4rem',
+  ]
+}))
 
 const Pointer = styled.div(mediaQueries({
   display: 'inline-flex',

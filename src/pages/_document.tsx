@@ -7,8 +7,9 @@ import Document, {
 } from 'next/document'
 import styled from '@emotion/styled'
 import { primary, secondary } from '@lib/colors'
+import { mediaQueries } from '@lib/mediaQueries'
 
-const Body = styled.body({
+const Body = styled.body(mediaQueries({
   background: secondary,
   color: '#353535',
   fontFamily: '"Open Sans", sans-serif',
@@ -26,13 +27,31 @@ const Body = styled.body({
   },
   paddingBottom: '6rem',
   h1: {
-    fontSize: '2rem',
+    fontSize: [
+      '1.75rem',
+      '1.75rem',
+      '2rem',
+      '2rem',
+      '2rem',
+    ]
   },
   h2: {
-    fontSize: '1.75rem'
+    fontSize: [
+      '1.5rem',
+      '1.5rem',
+      '1.75rem',
+      '1.75rem',
+      '1.75rem',
+    ]
   },
   h3: {
-    fontSize: '1.5rem'
+    fontSize: [
+      '1.25rem',
+      '1.25rem',
+      '1.5rem',
+      '1.5rem',
+      '1.5rem',
+    ]
   },
   a: {
     color: primary
@@ -43,7 +62,7 @@ const Body = styled.body({
   '#__next': {
     position: 'relative'
   }
-})
+}))
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
