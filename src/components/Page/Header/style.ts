@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { rgba } from 'polished'
+import { mediaQueries } from '@lib/mediaQueries'
 
 /** Props Interfaces */
 
@@ -15,18 +16,30 @@ interface LogoPropsI {
 
 export const Logo = styled.img<LogoPropsI>(({
   scrolled = false
-}) => ({
+}) => mediaQueries({
   cursor: 'pointer',
   maxHeight: scrolled
-    ? '3rem'
-    : '4rem',
+    ? [
+      '2rem',
+      '2rem',
+      '3rem',
+      '3rem',
+      '3rem'
+    ]
+    : [
+      '3rem',
+      '3rem',
+      '4rem',
+      '4rem',
+      '4rem'
+    ],
   transition: 'all 350ms'
 }))
 
 
 export const Wrapper = styled.header<WrapperPropsI>(({
   scrolled = false
-}) => ({
+}) => mediaQueries({
   backgroundColor: scrolled
     ? 'white' 
     : 'transparent',
@@ -36,7 +49,13 @@ export const Wrapper = styled.header<WrapperPropsI>(({
   left: 0,
   padding: scrolled 
     ? '1rem 0'
-    : '2rem 0',
+    : [
+      '1rem 0',
+      '1rem 0',
+      '2rem 0',
+      '2rem 0',
+      '2rem 0',
+    ],
   position: 'fixed',
   right: 0,
   top: 0,

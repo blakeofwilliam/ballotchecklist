@@ -3,9 +3,16 @@ import Container from 'src/hack-ds/Container'
 
 import Header from '@components/Page/Header'
 import Footer from '@components/Page/Footer'
+import { StatePropsI } from '@lib/contentful'
+import StateSelector from '@components/StateSelector'
 
-const Page: FunctionComponent = ({ children }) => {
-  const [isScrollled, setIsScrolled] = useState<boolean>(false)
+interface PagePropsI {
+  state?: StatePropsI
+  states: StatePropsI[]
+}
+
+const Page: FunctionComponent<PagePropsI> = ({ children, state = null, states = [] }) => {
+  const [isScrolled, setIsScrolled] = useState<boolean>(false)
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
@@ -19,12 +26,13 @@ const Page: FunctionComponent = ({ children }) => {
 
   return (
     <>
-      <Header isScrolled={isScrollled} />
-
+      <Header isScrolled={isScrolled} />
       <Container
         body={true}
-        scrolled={isScrollled}
+        scrolled={isScrolled}
       >
+        <StateSelector scrolled={isScrolled} state={state} states={states} />
+
         { children }
       </Container>
 

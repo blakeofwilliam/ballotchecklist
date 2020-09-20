@@ -55,9 +55,9 @@ const States: NextPage<StatesPagePropsI> = ({
       <Head>
         <title>Ballot Checklist | List of States</title>
       </Head>
-      <Page>
-        <StateSelector states={states} />
-        
+      <Page
+        states={states}
+      >
         <Card width="100%">
           <h1>List of States</h1>
           <List>

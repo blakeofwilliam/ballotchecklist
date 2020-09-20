@@ -37,8 +37,20 @@ const Container = styled.div<ContainerPropsI>(({
   ],
   paddingTop: body
     ? scrolled 
-      ? '5rem'
-      : '9rem'
+      ? [
+        '3rem',
+        '3rem',
+        '5rem',
+        '5rem',
+        '5rem',
+      ]
+      : [
+        '6rem',
+        '6rem',
+        '9rem',
+        '9rem',
+        '9rem'
+      ]
     : 0,
   transition: 'padding-top 350ms',
   width: '100%'

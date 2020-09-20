@@ -30,8 +30,9 @@ const Index: NextPage<IndexPagePropsI> = ({
       <Head>
         <title>Ballot Checklist</title>
       </Head>
-      <Page>
-        <StateSelector states={states} />
+      <Page
+        states={states}
+      >
         <Card
           style={{ marginTop: '1rem'}}
           width="100%"

@@ -61,8 +61,10 @@ const State: NextPage<StatePagePropsI> = ({
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image:alt" content={`Ballot Checklist for ${state.name}`} />
       </Head>
-      <Page>
-        <StateSelector state={state} states={states} />
+      <Page
+        state={state}
+        states={states}
+      >
         <Card
           style={{ marginTop: '1rem'}}
           width="100%"

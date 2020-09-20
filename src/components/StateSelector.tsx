@@ -7,24 +7,45 @@ import { secondary } from '@lib/colors'
 import styled from '@emotion/styled'
 import { mediaQueries } from '@lib/mediaQueries'
 
-const Wrapper = styled.div(mediaQueries({
+interface WrapperPropsI {
+  scrolled: boolean
+}
+
+const Wrapper = styled.div<WrapperPropsI>(({
+  scrolled = false
+}) => mediaQueries({
   display: 'flex',
-  justifyContent: 'center',
+  justifyContent: [
+    scrolled ? 'flex-end' : 'center',
+    scrolled ? 'flex-end' : 'center',
+    'center',
+    'center',
+    'center'
+  ],
   position: 'sticky',
-  top: '1.5rem',
+  top: [
+    '1rem',
+    '1rem',
+    '1.5rem',
+    '1.5rem',
+    '1.5rem'
+  ],
   width: '100%',
+  '> div': {
+    width: [
+      scrolled ? '245px' : '100%',
+      scrolled ? '245px' : '100%',
+      '320px',
+      '320px',
+      '320px'
+    ]
+  },
   '.react-dropdown-select': {
     background: 'white',
     borderRadius: '0.25rem',
     fontFamily: '"Open Sans", Arial, sans-serif',
     paddingLeft: '0.75rem',
-    width: [
-      '100%',
-      '100%',
-      '320px',
-      '320px',
-      '320px'
-    ]
+    width: '100%'
   },
   '.react-dropdown-select-dropdown': {
     top: '36px'
@@ -32,11 +53,13 @@ const Wrapper = styled.div(mediaQueries({
 }))
 
 interface StateSelectorPropsI {
+  scrolled?: boolean
   state?: StatePropsI,
   states: StatePropsI[]
 }
 
 const StateSelector: FunctionComponent<StateSelectorPropsI> = ({
+  scrolled = false,
   state = null,
   states = []
 }) => {
@@ -45,7 +68,7 @@ const StateSelector: FunctionComponent<StateSelectorPropsI> = ({
   }
 
   return (
-    <Wrapper>
+    <Wrapper scrolled={scrolled}>
       <Select
         color={secondary}
         labelField="name"
