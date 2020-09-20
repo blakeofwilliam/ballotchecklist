@@ -29,6 +29,7 @@ import styled from '@emotion/styled'
 import { secondary } from '@lib/colors'
 import Flex from '@system/Flex'
 import { toSlug, fromSlug } from '@lib/state'
+import StateImage from '@components/StateImage'
 
 const Icon = styled(FontAwesomeIcon)({
   color: secondary,
@@ -70,56 +71,63 @@ const State: NextPage<StatePagePropsI> = ({
           style={{ marginTop: '1rem'}}
           width="100%"
         >
-          <Flex justifyContent="space-between">
-            <h1>{ state.name }</h1>
+          <Flex justifyContent="center">
+            <div style={{marginRight: '1rem'}}>
+              <StateImage state={state.name} />
+            </div>
+
             <div>
-              <TwitterShareButton url={`${baseURL}/states/${toSlug(state.name)}`}>
-                <TwitterIcon size={30} round={true} />
-              </TwitterShareButton>
-              <FacebookShareButton url={`${baseURL}/states/${toSlug(state.name)}`}>
-                <FacebookIcon size={30} round={true} />
-              </FacebookShareButton>
-              <RedditShareButton url={`${baseURL}/states/${toSlug(state.name)}`}>
-                <RedditIcon size={30} round={true} />
-              </RedditShareButton>
-              <LinkedinShareButton url={`${baseURL}/states/${toSlug(state.name)}`}>
-                <LinkedinIcon size={30} round={true} />
-              </LinkedinShareButton>
+              <h1>{ state.name }</h1>
+              
+              { state.postmarkDeadline && !state.receiptDeadline && (
+                <p>
+                  <Icon icon="envelope-open-text" />
+                  Mail-in ballot must be postmarked by <b>{DateTime.fromFormat(state.postmarkDeadline, 'yyyy-MM-dd').toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}</b>
+                </p>
+              )}
+              { state.receiptDeadline && !state.postmarkDeadline && (
+                <p>
+                  <Icon icon="envelope-open-text" />
+                  Mail-in ballot must be received by <b>{DateTime.fromFormat(state.receiptDeadline, 'yyyy-MM-dd').toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}</b>
+                </p>
+              )}
+              { state.receiptDeadline && state.postmarkDeadline && (
+                <p>
+                  <Icon icon="envelope-open-text" />
+                  Mail-in ballot must be postmarked by <b>{DateTime.fromFormat(state.postmarkDeadline, 'yyyy-MM-dd').toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}</b> and received by <b>{DateTime.fromFormat(state.receiptDeadline, 'yyyy-MM-dd').toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}</b>
+                </p>
+              )}
+              <p>
+                <Icon icon="id-card" />
+                { state.copyOfIdRequred 
+                  ? `This state requires a copy of valid identification with mail-in ballots`
+                  : `This state does not require a copy of valid identification with mail-ballots`
+                }
+              </p>
+              <p>
+                <Icon icon="user-friends" />
+                { state.notaryOfWitnessRequired 
+                  ? `This state requires a notary or witness(es) to verify your mail-in ballot` 
+                  : `This state does not require a notary or witness to verify your mail-in ballot`
+                }
+              </p>
             </div>
           </Flex>
-          
-          { state.postmarkDeadline && !state.receiptDeadline && (
-            <p>
-              <Icon icon="envelope-open-text" />
-              Mail-in ballot must be postmarked by <b>{DateTime.fromFormat(state.postmarkDeadline, 'yyyy-MM-dd').toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}</b>
-            </p>
-          )}
-          { state.receiptDeadline && !state.postmarkDeadline && (
-            <p>
-              <Icon icon="envelope-open-text" />
-              Mail-in ballot must be received by <b>{DateTime.fromFormat(state.receiptDeadline, 'yyyy-MM-dd').toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}</b>
-            </p>
-          )}
-          { state.receiptDeadline && state.postmarkDeadline && (
-            <p>
-              <Icon icon="envelope-open-text" />
-              Mail-in ballot must be postmarked by <b>{DateTime.fromFormat(state.postmarkDeadline, 'yyyy-MM-dd').toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}</b> and received by <b>{DateTime.fromFormat(state.receiptDeadline, 'yyyy-MM-dd').toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}</b>
-            </p>
-          )}
-          <p>
-            <Icon icon="id-card" />
-            { state.copyOfIdRequred 
-              ? `This state requires a copy of valid identification with mail-in ballots`
-              : `This state does not require a copy of valid identification with mail-ballots`
-            }
-          </p>
-          <p>
-            <Icon icon="user-friends" />
-            { state.notaryOfWitnessRequired 
-              ? `This state requires a notary or witness(es) to verify your mail-in ballot` 
-              : `This state does not require a notary or witness to verify your mail-in ballot`
-            }
-          </p>
+
+          <Flex justifyContent='center'>
+            <TwitterShareButton url={`${baseURL}/states/${toSlug(state.name)}`} style={{marginRight: '.5rem'}}>
+              <TwitterIcon size={30} round={true} />
+            </TwitterShareButton>
+            <FacebookShareButton url={`${baseURL}/states/${toSlug(state.name)}`} style={{marginRight: '.5rem'}}>
+              <FacebookIcon size={30} round={true} />
+            </FacebookShareButton>
+            <RedditShareButton url={`${baseURL}/states/${toSlug(state.name)}`} style={{marginRight: '.5rem'}}>
+              <RedditIcon size={30} round={true} />
+            </RedditShareButton>
+            <LinkedinShareButton url={`${baseURL}/states/${toSlug(state.name)}`} style={{marginRight: '.5rem'}}>
+              <LinkedinIcon size={30} round={true} />
+            </LinkedinShareButton>
+          </Flex>
 
           <Pointers pointers={pointers.filter(pointer => {
             if (!state.notaryOfWitnessRequired && pointer.name.toLowerCase().indexOf('witness') >= 0) {
