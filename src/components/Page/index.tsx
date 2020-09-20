@@ -21,7 +21,7 @@ const Page: FunctionComponent<PagePropsI> = ({ children, state = null, states = 
   })
 
   const handleScroll = (_e: Event): void => {
-    setIsScrolled(window.scrollY >= 10)
+    setIsScrolled(window.scrollY >= 50)
   }
 
   return (
