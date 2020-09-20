@@ -33,7 +33,8 @@ export const Logo = styled.img<LogoPropsI>(({
       '4rem',
       '4rem'
     ],
-  transition: 'all 350ms'
+  transition: 'all 350ms',
+  zIndex: 2
 }))
 
 
