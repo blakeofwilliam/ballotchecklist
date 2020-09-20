@@ -25,7 +25,8 @@
     "polished": "^3.6.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-dropdown-select": "^4.5.1"
+    "react-dropdown-select": "^4.5.1",
+    "react-share": "^4.2.1"
   },
   "devDependencies": {
     "@types/facepaint": "^1.2.1",

@@ -2,36 +2,29 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import absoluteUrl from 'next-absolute-url'
 import { DateTime } from 'luxon'
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  RedditShareButton,
+  LinkedinShareButton
+} from 'react-share'
 
 import {
-  getPointers,
-  getState,
   PointerPropsI,
-  StatePropsI,
-  getStates
+  StatePropsI
 } from '@lib/contentful'
 import Page from '@components/Page'
-import { fromSlug } from '@lib/state'
 import Card from '@system/Card'
 import RichText from '@components/RichText'
 import Pointers from '@components/Pointers'
-import StateSelector from '@components/StateSelector'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from '@emotion/styled'
 import { secondary } from '@lib/colors'
+import Flex from '@system/Flex'
 
 const Icon = styled(FontAwesomeIcon)({
   color: secondary,
   marginRight: '1rem'
-})
-
-const List = styled.ul({
-  margin: 0,
-  padding: 0
-})
-
-const ListItem = styled.li({
-  listStyle: 'none'
 })
 
 interface StatePagePropsI {
@@ -69,7 +62,9 @@ const State: NextPage<StatePagePropsI> = ({
           style={{ marginTop: '1rem'}}
           width="100%"
         >
-          <h1>{ state.name }</h1>
+          <Flex justifyContent="space-between">
+            <h1>{ state.name }</h1>
+          </Flex>
           
           { state.postmarkDeadline && !state.receiptDeadline && (
             <p>
