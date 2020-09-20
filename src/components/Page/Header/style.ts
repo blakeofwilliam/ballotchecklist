@@ -1,8 +1,5 @@
-import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-import { darken } from 'polished'
-
-import { secondary } from '@lib/colors'
+import { rgba } from 'polished'
 
 /** Props Interfaces */
 
@@ -23,7 +20,7 @@ export const Logo = styled.img<LogoPropsI>(({
   maxHeight: scrolled
     ? '3rem'
     : '4rem',
-  transition: 'max-height 350ms'
+  transition: 'all 350ms'
 }))
 
 
@@ -33,6 +30,9 @@ export const Wrapper = styled.header<WrapperPropsI>(({
   backgroundColor: scrolled
     ? 'white' 
     : 'transparent',
+  boxShadow: scrolled
+    ? `0 0.125rem 0.25rem ${rgba('#353535', 0.25)}`
+    : 'none',
   left: 0,
   padding: scrolled 
     ? '1rem 0'
@@ -40,5 +40,5 @@ export const Wrapper = styled.header<WrapperPropsI>(({
   position: 'fixed',
   right: 0,
   top: 0,
-  transition: 'background-color 350ms, height 350ms'
+  transition: 'all 350ms'
 }))

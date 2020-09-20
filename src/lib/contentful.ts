@@ -7,7 +7,7 @@ export interface StatePropsI {
   copyOfIdRequred: boolean
   name: string
   notaryOfWitnessRequired: boolean
-  postmarkedDeadline: string
+  postmarkDeadline: string
   receiptDeadline: string
   validFormsOfId: string[]
 }

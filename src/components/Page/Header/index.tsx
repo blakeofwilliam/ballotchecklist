@@ -24,7 +24,7 @@ const Header: FunctionComponent<HeaderPropsI> = ({ isScrolled = false }) => {
     >
       <Container
         alignItems="center"
-        justifyContent="space-between"
+        justifyContent={isScrolled ? 'flex-start' : 'center'}
       >
         <Link href="/">
           <Logo 
@@ -36,7 +36,6 @@ const Header: FunctionComponent<HeaderPropsI> = ({ isScrolled = false }) => {
             } 
           />
         </Link>
-        <Nav scrolled={isScrolled} />
       </Container>
     </Wrapper>
   )

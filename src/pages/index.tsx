@@ -32,7 +32,10 @@ const Index: NextPage<IndexPagePropsI> = ({
       </Head>
       <Page>
         <StateSelector states={states} />
-        <Card width="100%">
+        <Card
+          style={{ marginTop: '1rem'}}
+          width="100%"
+        >
           <Pointers pointers={pointers} />
         </Card>
       </Page>

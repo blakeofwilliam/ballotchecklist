@@ -14,13 +14,17 @@ const Body = styled.body({
   fontFamily: '"Open Sans", sans-serif',
   fontSize: '15px',
   fontWeight: 500,
-  minHeight: '200vh',
-  lineHeight: '1.2',
+  lineHeight: 2,
   margin: 0,
   'h1, h2, h3': {
     fontWeight: 700,
-    margin: 0
+    lineHeight: 1.2,
+    margin: 0,
+    '&:not(:first-of-type)': {
+      margin: '2rem 0 0'
+    }
   },
+  paddingBottom: '6rem',
   h1: {
     fontSize: '2rem',
   },
