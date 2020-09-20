@@ -38,8 +38,8 @@ const Wrapper = styled.div<WrapperPropsI>(({
   width: '100%',
   '> div': {
     width: [
-      scrolled ? '245px' : '100%',
-      scrolled ? '245px' : '100%',
+      scrolled ? '240px' : '100%',
+      scrolled ? '240px' : '100%',
       '320px',
       '320px',
       '320px'
