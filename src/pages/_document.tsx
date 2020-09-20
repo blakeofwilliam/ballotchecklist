@@ -58,7 +58,7 @@ class MyDocument extends Document {
         <Head>
           <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700,800&display=swap" rel="stylesheet" />
           <link href="/images/favicon.png" rel="icon" type="image/png" />
-          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
         </Head>
         <Body>
           <Main />
