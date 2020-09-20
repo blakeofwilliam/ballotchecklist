@@ -3,15 +3,22 @@ import Head from 'next/head'
 import absoluteUrl from 'next-absolute-url'
 import { DateTime } from 'luxon'
 import {
+  FacebookIcon,
   FacebookShareButton,
-  TwitterShareButton,
+  LinkedinIcon,
+  LinkedinShareButton,
+  RedditIcon,
   RedditShareButton,
-  LinkedinShareButton
+  TwitterIcon,
+  TwitterShareButton
 } from 'react-share'
 
 import {
   PointerPropsI,
-  StatePropsI
+  StatePropsI,
+  getState,
+  getPointers,
+  getStates
 } from '@lib/contentful'
 import Page from '@components/Page'
 import Card from '@system/Card'
@@ -21,6 +28,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from '@emotion/styled'
 import { secondary } from '@lib/colors'
 import Flex from '@system/Flex'
+import { toSlug, fromSlug } from '@lib/state'
 
 const Icon = styled(FontAwesomeIcon)({
   color: secondary,
@@ -64,6 +72,20 @@ const State: NextPage<StatePagePropsI> = ({
         >
           <Flex justifyContent="space-between">
             <h1>{ state.name }</h1>
+            <div>
+              <TwitterShareButton url={`${baseURL}/states/${toSlug(state.name)}`}>
+                <TwitterIcon size={30} round={true} />
+              </TwitterShareButton>
+              <FacebookShareButton url={`${baseURL}/states/${toSlug(state.name)}`}>
+                <FacebookIcon size={30} round={true} />
+              </FacebookShareButton>
+              <RedditShareButton url={`${baseURL}/states/${toSlug(state.name)}`}>
+                <RedditIcon size={30} round={true} />
+              </RedditShareButton>
+              <LinkedinShareButton url={`${baseURL}/states/${toSlug(state.name)}`}>
+                <LinkedinIcon size={30} round={true} />
+              </LinkedinShareButton>
+            </div>
           </Flex>
           
           { state.postmarkDeadline && !state.receiptDeadline && (
