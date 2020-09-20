@@ -8,6 +8,7 @@ import Page from '@components/Page'
 import Card from '@system/Card'
 import StateListItem from '@components/StateListItem'
 import { mediaQueries } from '@lib/mediaQueries'
+import StateSelector from '@components/StateSelector'
 
 const List = styled.ul({
   display: 'flex',
@@ -55,6 +56,8 @@ const States: NextPage<StatesPagePropsI> = ({
         <title>Ballot Checklist | List of States</title>
       </Head>
       <Page>
+        <StateSelector states={states} />
+        
         <Card width="100%">
           <h1>List of States</h1>
           <List>

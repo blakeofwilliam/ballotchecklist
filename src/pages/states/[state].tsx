@@ -6,24 +6,28 @@ import {
   getPointers,
   getState,
   PointerPropsI,
-  StatePropsI
+  StatePropsI,
+  getStates
 } from '@lib/contentful'
 import Page from '@components/Page'
 import { fromSlug } from '@lib/state'
 import Card from '@system/Card'
 import RichText from '@components/RichText'
 import Pointers from '@components/Pointers'
+import StateSelector from '@components/StateSelector'
 
 interface StatePagePropsI {
   pointers: PointerPropsI[]
   baseURL: string
   state: StatePropsI
+  states: StatePropsI[]
 }
 
 const State: NextPage<StatePagePropsI> = ({
   pointers = [],
   baseURL,
   state,
+  states = []
 }) => {
   return (
     <>
@@ -40,6 +44,7 @@ const State: NextPage<StatePagePropsI> = ({
         <meta name="twitter:image:alt" content={`Ballot Checklist for ${state.name}`} />
       </Head>
       <Page>
+        <StateSelector states={states} />
         <Card width={`100%`}>
           <Pointers pointers={pointers.filter(pointer => {
             if (!state.notaryOfWitnessRequired && pointer.name.toLowerCase().indexOf('witness') >= 0) {
@@ -93,12 +98,14 @@ State.getInitialProps = async ({
     name
   })
   const pointers = await getPointers()
+  const states = await getStates()
   const { origin } = absoluteUrl(req, 'localhost:3000')
 
   return {
     pointers,
     baseURL: origin,
     state: stateEntry,
+    states
   }
 }
 
