@@ -88,27 +88,27 @@ const State: NextPage<StatePagePropsI> = ({
               { state.receiptDeadline && !state.postmarkDeadline && (
                 <p>
                   <Icon icon="envelope-open-text" />
-                  Mail-in ballot must be received by <b>{DateTime.fromFormat(state.receiptDeadline, 'yyyy-MM-dd').toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}</b>
+                  Mail-in ballot must be <u>received</u> by <b>{DateTime.fromFormat(state.receiptDeadline, 'yyyy-MM-dd').toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}</b>
                 </p>
               )}
               { state.receiptDeadline && state.postmarkDeadline && (
                 <p>
                   <Icon icon="envelope-open-text" />
-                  Mail-in ballot must be postmarked by <b>{DateTime.fromFormat(state.postmarkDeadline, 'yyyy-MM-dd').toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}</b> and received by <b>{DateTime.fromFormat(state.receiptDeadline, 'yyyy-MM-dd').toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}</b>
+                  Mail-in ballot must be <u>postmarked</u> by <b>{DateTime.fromFormat(state.postmarkDeadline, 'yyyy-MM-dd').toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}</b> and received by <b>{DateTime.fromFormat(state.receiptDeadline, 'yyyy-MM-dd').toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}</b>
                 </p>
               )}
               <p>
                 <Icon icon="id-card" />
                 { state.copyOfIdRequred 
-                  ? `This state requires a copy of valid identification with mail-in ballots`
-                  : `This state does not require a copy of valid identification with mail-ballots`
+                  ? <>This state <strong>does</strong> requires a copy of valid identification with mail-in ballots</>
+                  : <>This state <strong>does not</strong> require a copy of valid identification with mail-ballots</>
                 }
               </p>
               <p>
                 <Icon icon="user-friends" />
                 { state.notaryOfWitnessRequired 
-                  ? `This state requires a notary or witness(es) to verify your mail-in ballot` 
-                  : `This state does not require a notary or witness to verify your mail-in ballot`
+                  ? <>This state <strong>does</strong> requires a notary or witness(es) to verify your mail-in ballot</>
+                  : <>This state <strong>does not</strong> require a notary or witness to verify your mail-in ballot</>
                 }
               </p>
             </div>
@@ -139,25 +139,31 @@ const State: NextPage<StatePagePropsI> = ({
 
             return true
           })} />
-
-          { state.validFormsOfId && (
-            <>
-              <h2>Valid Forms of ID</h2>
-              <ul>
-                { state.validFormsOfId.map(id => <li key={id}>{id}</li>) }
-              </ul>
-            </>
-          )}
-          { state.additionalValidFormsOfId && (
-            <>
-              <h3>Additional Valid Forms of ID</h3>
-              <RichText document={state.additionalValidFormsOfId} />
-            </>
-          )}
-          { state.additionalInfo && (
-            <RichText document={state.additionalInfo} />
-          )}
         </Card>
+        {(state.validFormsOfId || state.additionalValidFormsOfId || state.additionalInfo) && (
+          <Card style={{marginTop: "1rem"}}>
+            <Flex>
+              <h1>Additional Information</h1>
+            </Flex>
+            { state.validFormsOfId && (
+              <>
+                <h3>Valid Forms of ID</h3>
+                <ul>
+                  { state.validFormsOfId.map(id => <li key={id}>{id}</li>) }
+                </ul>
+              </>
+            )}
+            { state.additionalValidFormsOfId && (
+              <>
+                <h3>Additional Valid Forms of ID</h3>
+                <RichText document={state.additionalValidFormsOfId} />
+              </>
+            )}
+            { state.additionalInfo && (
+              <RichText document={state.additionalInfo} />
+            )}
+          </Card>
+        )}
       </Page>
     </>
   )
