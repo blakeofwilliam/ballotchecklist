@@ -61,7 +61,7 @@ const Wrapper = styled.div<WrapperPropsI>(({
     display: isOpen && state ? 'none' : 'inline'
   },
   '.react-dropdown-select-input': {
-    display: isOpen && state ? 'inline-block' : 'none'
+    display: isOpen || !state ? 'inline-block' : 'none'
   }
 }))
 
