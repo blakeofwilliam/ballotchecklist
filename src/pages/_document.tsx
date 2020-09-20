@@ -25,7 +25,6 @@ const Body = styled.body(mediaQueries({
       margin: '2rem 0 0'
     }
   },
-  paddingBottom: '6rem',
   h1: {
     fontSize: [
       '1.75rem',
