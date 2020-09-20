@@ -13,11 +13,13 @@ import { mediaQueries } from '@lib/mediaQueries'
 interface WrapperPropsI {
   isOpen?: boolean
   scrolled: boolean
+  state?: StatePropsI
 }
 
 const Wrapper = styled.div<WrapperPropsI>(({
   isOpen = false,
-  scrolled = false
+  scrolled = false,
+  state = null
 }) => mediaQueries({
   display: 'flex',
   justifyContent: [
@@ -56,10 +58,10 @@ const Wrapper = styled.div<WrapperPropsI>(({
     top: '36px'
   },
   '.react-dropdown-select-content > span': {
-    display: isOpen ? 'none' : 'inline'
+    display: isOpen && state ? 'none' : 'inline'
   },
   '.react-dropdown-select-input': {
-    display: isOpen ? 'inline-block' : 'none'
+    display: isOpen && state ? 'inline-block' : 'none'
   }
 }))
 
@@ -84,6 +86,7 @@ const StateSelector: FunctionComponent<StateSelectorPropsI> = ({
     <Wrapper
       isOpen={isOpen}
       scrolled={scrolled}
+      state={state}
     >
       <Select
         color={secondary}
