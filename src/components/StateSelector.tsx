@@ -1,4 +1,7 @@
-import { FunctionComponent, ChangeEvent } from 'react'
+import {
+  useState,
+  FunctionComponent
+} from 'react'
 import Router from 'next/router'
 import { toSlug } from '@lib/state'
 import { StatePropsI } from '@lib/contentful'
@@ -8,10 +11,12 @@ import styled from '@emotion/styled'
 import { mediaQueries } from '@lib/mediaQueries'
 
 interface WrapperPropsI {
+  isOpen?: boolean
   scrolled: boolean
 }
 
 const Wrapper = styled.div<WrapperPropsI>(({
+  isOpen = false,
   scrolled = false
 }) => mediaQueries({
   display: 'flex',
@@ -49,6 +54,12 @@ const Wrapper = styled.div<WrapperPropsI>(({
   },
   '.react-dropdown-select-dropdown': {
     top: '36px'
+  },
+  '.react-dropdown-select-content > span': {
+    display: isOpen ? 'none' : 'inline'
+  },
+  '.react-dropdown-select-input': {
+    display: isOpen ? 'inline-block' : 'none'
   }
 }))
 
@@ -63,16 +74,23 @@ const StateSelector: FunctionComponent<StateSelectorPropsI> = ({
   state = null,
   states = []
 }) => {
+  const [ isOpen, setIsOpen ] = useState<boolean>(false)
+
   const handleChange = (value: any) => {
     Router.push(`/states/${toSlug(value[0].name)}`)
   }
 
   return (
-    <Wrapper scrolled={scrolled}>
+    <Wrapper
+      isOpen={isOpen}
+      scrolled={scrolled}
+    >
       <Select
         color={secondary}
         labelField="name"
         onChange={handleChange}
+        onDropdownClose={() => setIsOpen(false)}
+        onDropdownOpen={() => setIsOpen(true)}
         options={states}
         placeholder="Find your state..."
         searchBy="name"
