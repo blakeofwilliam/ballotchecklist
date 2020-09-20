@@ -1,8 +1,4 @@
-import {
-  useEffect,
-  useState,
-  FunctionComponent
-} from 'react'
+import { FunctionComponent } from 'react'
 
 import Container from '@system/Container'
 
@@ -10,7 +6,6 @@ import {
   Logo,
   Wrapper
 } from '@components/Page/Header/style'
-import Nav from '@components/Page/Header/Nav'
 import Link from 'next/link'
 
 interface HeaderPropsI {
