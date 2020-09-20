@@ -45,7 +45,17 @@ const State: NextPage<StatePagePropsI> = ({
       </Head>
       <Page>
         <StateSelector states={states} />
-        <Card width={`100%`}>
+        <Card
+          style={{ marginTop: '1rem'}}
+          width="100%"
+        >
+          <h1>{ state.name }</h1>
+
+          <ul>
+            <li>Copy of ID required? { state.copyOfIdRequred ? `✅` : `❌`}</li>
+            <li>Notary or Witness Required? { state.notaryOfWitnessRequired ? `✅` : `❌`}</li>
+          </ul>
+
           <Pointers pointers={pointers.filter(pointer => {
             if (!state.notaryOfWitnessRequired && pointer.name.toLowerCase().indexOf('witness') >= 0) {
               return false
@@ -56,16 +66,7 @@ const State: NextPage<StatePagePropsI> = ({
 
             return true
           })} />
-        </Card>
-        <Card
-          style={{ marginTop: '1rem'}}
-          width="100%"
-        >
-          <h1>{ state.name }</h1>
-          <ul>
-            <li>Copy of ID required? { state.copyOfIdRequred ? `✅` : `❌`}</li>
-            <li>Notary or Witness Required? { state.notaryOfWitnessRequired ? `✅` : `❌`}</li>
-          </ul>
+
           { state.validFormsOfId && (
             <>
               <h2>Valid Forms of ID</h2>
