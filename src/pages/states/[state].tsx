@@ -82,7 +82,7 @@ const State: NextPage<StatePagePropsI> = ({
               { state.postmarkDeadline && !state.receiptDeadline && (
                 <p>
                   <Icon icon="envelope-open-text" />
-                  Mail-in ballot must be postmarked by <b>{DateTime.fromFormat(state.postmarkDeadline, 'yyyy-MM-dd').toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}</b>
+                  Mail-in ballot must be <u>postmarked</u> by <b>{DateTime.fromFormat(state.postmarkDeadline, 'yyyy-MM-dd').toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}</b>
                 </p>
               )}
               { state.receiptDeadline && !state.postmarkDeadline && (
@@ -94,7 +94,7 @@ const State: NextPage<StatePagePropsI> = ({
               { state.receiptDeadline && state.postmarkDeadline && (
                 <p>
                   <Icon icon="envelope-open-text" />
-                  Mail-in ballot must be <u>postmarked</u> by <b>{DateTime.fromFormat(state.postmarkDeadline, 'yyyy-MM-dd').toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}</b> and received by <b>{DateTime.fromFormat(state.receiptDeadline, 'yyyy-MM-dd').toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}</b>
+                  Mail-in ballot must be <u>postmarked</u> by <b>{DateTime.fromFormat(state.postmarkDeadline, 'yyyy-MM-dd').toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}</b> and <u>received</u> by <b>{DateTime.fromFormat(state.receiptDeadline, 'yyyy-MM-dd').toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)}</b>
                 </p>
               )}
               <p>
