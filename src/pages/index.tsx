@@ -35,13 +35,13 @@ const Index: NextPage<IndexPagePropsI> = ({
         states={states}
       >
         <Card width="100%" style={{textAlign: "center", marginTop: "1rem"}}>
-          <h3>More than 318,000 ballots were rejected in 2016.</h3>
-          <h3>Mail in voting is expected to double or triple in 2020.</h3>
-          <h3><strong>Hundreds of thousands of votes could be disqualified.</strong></h3>
+          <h3>More than 318,000 mail-in ballots were rejected in 2016.</h3>
+          <h3>50% were due to issues with the signature, while 25% were mailed in late.</h3>
+          <h3>With mail-in voting expected to double or triple in 2020, <br /><strong>hundreds of thousands of votes could be disqualified.</strong></h3>
           <Flex style={{marginTop: "2rem"}} justifyContent="center">
             <PrimaryButton>See your state checklist</PrimaryButton>
           </Flex>
-          <h3>Read the Ballot Checklist to understand your state requirements for mail in voting<br />and make sure that your vote counts!</h3>
+          <h3><u>Read your state's Ballot Checklist to ensure your mail-in vote counts!</u></h3>
         </Card>
         <Card
           style={{ marginTop: '1rem'}}
