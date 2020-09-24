@@ -6,9 +6,10 @@ import Page from '@components/Page'
 import { PointerPropsI, getPointers, StatePropsI, getStates } from '@lib/contentful'
 import Pointers from '@components/Pointers'
 import Card from '@system/Card'
-import { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import Flex from '@system/Flex'
 import { PrimaryButton } from '@system/Button'
+import { SourceReference } from '@components/Source'
 
 
 interface IndexPagePropsI {
@@ -35,13 +36,13 @@ const Index: NextPage<IndexPagePropsI> = ({
         states={states}
       >
         <Card width="100%" style={{textAlign: "center", marginTop: "1rem"}}>
-          <h3>More than 318,000 mail-in ballots were rejected in 2016.</h3>
-          <h3>50% were due to issues with the signature, while 25% were mailed in late.</h3>
-          <h3>With mail-in voting expected to double or triple in 2020, <br /><strong>hundreds of thousands of votes could be disqualified.</strong></h3>
+          <h3 style={{fontWeight: 100}}>More than 318,000 mail-in ballots were rejected in 2016.</h3>
+          <h3 style={{fontWeight: 100}}>47.5% were due to issues with the signature, while 23.1% were mailed in late.</h3>
+          <h3 style={{fontWeight: 100}}>With mail-in voting expected to double or triple in 2020, <br /><u>hundreds of thousands of votes could be disqualified.</u></h3>
           <Flex style={{marginTop: "2rem"}} justifyContent="center">
             <PrimaryButton>See your state checklist</PrimaryButton>
           </Flex>
-          <h3><u>Read your state's Ballot Checklist to ensure your mail-in vote counts!</u></h3>
+          <h3>Read your state's Ballot Checklist to ensure your mail-in vote counts!</h3>
         </Card>
         <Card
           style={{ marginTop: '1rem'}}

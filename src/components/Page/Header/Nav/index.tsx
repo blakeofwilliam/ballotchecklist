@@ -21,11 +21,11 @@ const Nav: FunctionComponent<NavPropsI> = ({
             Learn More
           </Link>
         </NavItem>
-        <NavItem scrolled={scrolled}>
+        {/* <NavItem scrolled={scrolled}>
           <Link href="/resources">
             Resources
           </Link>
-        </NavItem>
+        </NavItem> */}
       </NavItems>
     </Wrapper>
   )

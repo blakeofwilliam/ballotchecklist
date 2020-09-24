@@ -50,7 +50,7 @@ const Body = styled.body(mediaQueries({
       '1.5rem',
       '1.5rem',
       '1.5rem',
-    ]
+    ],
   },
   a: {
     color: primary
