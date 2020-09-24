@@ -8,7 +8,7 @@ import StateSelector from '@components/StateSelector'
 
 interface PagePropsI {
   state?: StatePropsI
-  states: StatePropsI[]
+  states?: StatePropsI[]
 }
 
 const Page: FunctionComponent<PagePropsI> = ({ children, state = null, states = [] }) => {
@@ -31,7 +31,7 @@ const Page: FunctionComponent<PagePropsI> = ({ children, state = null, states = 
         body={true}
         scrolled={isScrolled}
       >
-        <StateSelector scrolled={isScrolled} state={state} states={states} />
+        {states.length > 0 && (<StateSelector scrolled={isScrolled} state={state} states={states} />)}
 
         { children }
       </Container>
