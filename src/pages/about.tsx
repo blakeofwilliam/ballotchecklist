@@ -5,7 +5,9 @@ import Router from 'next/router'
 import Page from '@components/Page'
 import { PointerPropsI, getPointers, StatePropsI, getStates } from '@lib/contentful'
 import Card from '@system/Card'
-import { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useState } from 'react'
+import Container from '@system/Container'
+import Flex from '@system/Flex'
 
 
 interface IndexPagePropsI {
@@ -29,8 +31,16 @@ const Index: NextPage<IndexPagePropsI> = ({
         <title>Ballot Checklist</title>
       </Head>
       <Page>
-        <Card width="100%" style={{textAlign: "center", marginTop: "1rem"}}>
-         <h3>Some info here</h3>
+        <Card width="100%" style={{textAlign: "center", marginTop: "1rem" }}>
+         <h3>About</h3>
+         <Flex style={{flexDirection: "column"}}>
+          <p>Ballot Checklist provides information for mail-in voting to ensure your vote gets counted!</p>
+          <p>
+            If any of the information is out of date or incorrect we want to fix it!
+            Please let us know what needs updating along with a link to supporting evidence. 
+            Reach us at ballotchecklist [at] gmail dot com.
+           </p>
+         </Flex>
         </Card>
       </Page>
     </>
