@@ -31,6 +31,8 @@ import Flex from '@system/Flex'
 import { toSlug, fromSlug } from '@lib/state'
 import StateImage from '@components/StateImage'
 
+const SOCIAL_SIZE = 25
+
 const Icon = styled(FontAwesomeIcon)({
   color: secondary,
   marginRight: '1rem'
@@ -77,7 +79,25 @@ const State: NextPage<StatePagePropsI> = ({
             </div>
 
             <div>
-              <h1>{ state.name }</h1>
+              <Flex justifyContent="left">
+
+              <h1>{ state.name }'s Checklist</h1>
+<Flex style={{flex: 1}}/>
+<Flex>
+              <TwitterShareButton url={`${baseURL}/states/${toSlug(state.name)}`} style={{marginRight: '.5rem'}}>
+              <TwitterIcon size={SOCIAL_SIZE} round={true} />
+            </TwitterShareButton>
+            <FacebookShareButton url={`${baseURL}/states/${toSlug(state.name)}`} style={{marginRight: '.5rem'}}>
+              <FacebookIcon size={SOCIAL_SIZE} round={true} />
+            </FacebookShareButton>
+            <RedditShareButton url={`${baseURL}/states/${toSlug(state.name)}`} style={{marginRight: '.5rem'}}>
+              <RedditIcon size={SOCIAL_SIZE} round={true} />
+            </RedditShareButton>
+            <LinkedinShareButton url={`${baseURL}/states/${toSlug(state.name)}`} style={{marginRight: '.5rem'}}>
+              <LinkedinIcon size={SOCIAL_SIZE} round={true} />
+            </LinkedinShareButton>
+              </Flex>
+</Flex>
               
               { state.postmarkDeadline && !state.receiptDeadline && (
                 <p>
@@ -113,8 +133,7 @@ const State: NextPage<StatePagePropsI> = ({
               </p>
             </div>
           </Flex>
-
-          <Flex justifyContent='center'>
+          {/* <Flex justifyContent='center'>
             <TwitterShareButton url={`${baseURL}/states/${toSlug(state.name)}`} style={{marginRight: '.5rem'}}>
               <TwitterIcon size={30} round={true} />
             </TwitterShareButton>
@@ -127,7 +146,7 @@ const State: NextPage<StatePagePropsI> = ({
             <LinkedinShareButton url={`${baseURL}/states/${toSlug(state.name)}`} style={{marginRight: '.5rem'}}>
               <LinkedinIcon size={30} round={true} />
             </LinkedinShareButton>
-          </Flex>
+          </Flex> */}
 
           <Pointers pointers={pointers.filter(pointer => {
             if (!state.notaryOfWitnessRequired && pointer.name.toLowerCase().indexOf('witness') >= 0) {

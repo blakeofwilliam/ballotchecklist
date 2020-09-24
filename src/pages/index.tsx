@@ -49,7 +49,7 @@ const Index: NextPage<IndexPagePropsI> = ({
           width="100%"
         >
           <Flex justifyContent="center">
-          <h1>The Ballot Checklist</h1>
+          <h1>General Ballot Checklist</h1>
           </Flex>
           <Pointers pointers={pointers} />
         </Card>
