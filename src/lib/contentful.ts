@@ -21,6 +21,7 @@ export interface PointerPropsI {
   name: string
   content: Document
   icon: string
+  percentage?: number
 }
 
 let contentful: Contentful.ContentfulClientApi;

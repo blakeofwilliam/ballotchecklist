@@ -51,6 +51,7 @@ const State: NextPage<StatePagePropsI> = ({
   state,
   states = []
 }) => {
+  const validIdUrl = `/states/${state.name}#additional-info`
   return (
     <>
       <Head>
@@ -120,7 +121,7 @@ const State: NextPage<StatePagePropsI> = ({
               <p>
                 <Icon icon="id-card" />
                 { state.copyOfIdRequred 
-                  ? <>This state <strong>does</strong> requires a copy of valid identification with mail-in ballots</>
+                  ? <>This state <strong>does</strong> requires a copy of <a href={validIdUrl}>valid identification</a> with mail-in ballots</>
                   : <>This state <strong>does not</strong> require a copy of valid identification with mail-ballots</>
                 }
               </p>
@@ -162,7 +163,7 @@ const State: NextPage<StatePagePropsI> = ({
         {(state.validFormsOfId || state.additionalValidFormsOfId || state.additionalInfo) && (
           <Card style={{marginTop: "1rem"}}>
             <Flex>
-              <h1>Additional Information</h1>
+              <h1 id="additional-info">Additional Information</h1>
             </Flex>
             { state.validFormsOfId && (
               <>
