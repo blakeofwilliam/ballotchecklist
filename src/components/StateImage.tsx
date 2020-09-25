@@ -82,7 +82,6 @@ const StateImage: FunctionComponent<StateImagePropsI> = ({
   else if (state === 'West Virginia') {selectedState = <WestVirginia {...stateProps} /> }
   else if (state === 'Wisconsin') {selectedState = <Wisconsin {...stateProps} /> }
   else if (state === 'Wyoming') {selectedState = <Wyoming {...stateProps} /> }
-  else {selectedState = <California {...stateProps} />}
 
   return (
     <>
